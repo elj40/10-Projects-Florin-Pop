@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width,inital-scale=1.0">
         <title>Recipe App</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
     </head>
     <body>
             <div class="mobile-container">
@@ -14,34 +13,14 @@
                     <button id="search"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </header>
                 <div class="fav-container">
-                    <ul class="fav-meals">
-                        <li><img src="https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg" alt=""><span>Bobotie</span></li>
-                        <li><img src="https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg" alt=""><span>Bobotie</span></li>
-                        <li><img src="https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg" alt=""><span>Bobotie</span></li>
-                        <li><img src="https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg" alt=""><span>Bobotie</span></li>
-                        <li><img src="https://www.themealdb.com/images/media/meals/wrustq1511475474.jpg" alt=""><span>Yaki Udon</span></li>
-                        <li><img src="https://www.themealdb.com/images/media/meals/wrustq1511475474.jpg" alt=""><span>Yaki Udon</span></li>
-                        <li><img src="https://www.themealdb.com/images/media/meals/wrustq1511475474.jpg" alt=""><span>Yaki Udon</span></li>
-                        <li><img src="https://www.themealdb.com/images/media/meals/wrustq1511475474.jpg" alt=""><span>Yaki Udon</span></li>
+                    <ul class="fav-meals" id="fav-meals">
                     </ul>
                 </div>
-            <div class="meals">
-                <div class="meal">
-
-                    <div class="meal-header">
-                        <span class="random">Random Recipe</span>
-
-                        <img src="https://www.themealdb.com/images/media/meals/kvbotn1581012881.jpg" alt="">
-                    </div>
-                    <div class="meal-body">
-                        <h4>Veggie Veggies</h4>
-                        <button id="heart">
-                            <i class="fa-solid fa-heart"></i>                      
-                        </button>
-                    </div>
-                </div>
+            <div class="meals" id="meals">
+                
             </div>
         </div>
-
     </body>
+    <script src="script.js"></script>
+
 </html>
