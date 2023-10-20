@@ -15,9 +15,13 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    overflow:hidden;
 }
 img {
     max-width: 100%;
+}
+button {
+    cursor:pointer;
 }
 
 .mobile-container {
@@ -96,6 +100,8 @@ header button {
     box-shadow: 0 0 10px gray;
     border-radius: 5px;
     overflow: hidden;
+    max-height: 100vh;
+    min-height: 50vh;
 }
 .meal-header  {
     position: relative;
@@ -142,4 +148,10 @@ header button {
 
 .fa-heart {
     color: inherit;
+}
+
+.instructions {
+    display:none;
+    padding: 0.5rem;
+    
 }

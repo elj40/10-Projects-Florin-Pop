@@ -12,6 +12,11 @@ async function getRandomMeal() {
 
 async function getMealByID(id) {
     const resp = await fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id);
+    if (resp == null) {
+        alert("Could not find recipe");
+        return;
+    }
+    
     const meals = await resp.json();
     const meal = meals.meals[0];
 
@@ -20,10 +25,22 @@ async function getMealByID(id) {
 
 async function getMealsBySearch(term) {
     const resp = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s="+term.replace(" ", "%20"));
+    if (resp == null) {
+        alert("Could not find recipe");
+        return;
+    }
+    
     const meals = await resp.json();
     const meal = meals.meals[0];
 
     return meal;
+}
+
+async function search() {
+    const searchTerm = document.getElementById("search-term");
+
+    let mealData = await getMealsBySearch(searchTerm.value);
+    addMeal(mealData);
 }
 
 
@@ -36,9 +53,13 @@ function addMeal(mealData, isActive = false) {
         <span class="random">${mealData.strMeal}</span>
     
         <img src="${mealData.strMealThumb}" alt="">
+        <p class="instructions">${mealData.strInstructions}</p>
     </div>
     <div class="meal-body">
         <h4>${mealData.strCategory}</h4>
+        <button class="info">
+            <i class="fa-solid fa-info"></i>
+        </button>
         <button class="heart">
             <i class="fa-solid fa-heart"></i>                      
         </button>
@@ -48,19 +69,40 @@ function addMeal(mealData, isActive = false) {
     if (isActive) meal.querySelector(".fa-heart").classList.add("active");
 
     meal.querySelector(".heart").addEventListener("click", (e)=> {
-        //alert("I am meal " + mealCount);
+
         let me = e.target;
         
         if (me.classList.contains('active')) {
             removeMealFromLS(mealData.idMeal);
             removeMealFromFav(mealData);
             me.classList.remove("active");
-            //me.style.color = "gray"
+
         }else {
             addMealToLS(mealData.idMeal);
             addMealToFav(mealData);
             me.classList.add("active");
-           //me.style.color = "aqua";
+
+        }
+    })
+
+    meal.querySelector(".info").addEventListener("click", (e)=> {
+        let t = e.target;
+
+        const image = meal.getElementsByTagName("img")[0];
+        const random = meal.querySelector(".random");
+        const p = meal.querySelector(".instructions");
+
+
+        if (t.classList.contains("open")) {
+            image.style.display = "block";
+            random.style.display = "block";
+            p.style.display = "none";
+            t.classList.remove("open");
+        }else {
+            image.style.display = "none";
+            random.style.display = "none";
+            p.style.display = "block";
+            t.classList.add("open");
         }
     })
 
