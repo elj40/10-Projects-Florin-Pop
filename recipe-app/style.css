@@ -139,3 +139,7 @@ header button {
 .meal-body .active {
     color: aqua;
 }
+
+.fa-heart {
+    color: inherit;
+}

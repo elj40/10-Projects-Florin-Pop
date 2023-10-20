@@ -45,7 +45,7 @@ function addMeal(mealData, isActive = false) {
     </div>
     </div>`
 
-    if (isActive) meal.querySelector(".heart").classList.add("active");
+    if (isActive) meal.querySelector(".fa-heart").classList.add("active");
 
     meal.querySelector(".heart").addEventListener("click", (e)=> {
         //alert("I am meal " + mealCount);
@@ -54,11 +54,14 @@ function addMeal(mealData, isActive = false) {
         if (me.classList.contains('active')) {
             removeMealFromLS(mealData.idMeal);
             removeMealFromFav(mealData);
+            me.classList.remove("active");
+            //me.style.color = "gray"
         }else {
             addMealToLS(mealData.idMeal);
             addMealToFav(mealData);
+            me.classList.add("active");
+           //me.style.color = "aqua";
         }
-        me.classList.toggle("active");
     })
 
     mealsEl.innerHTML = "";
@@ -83,7 +86,8 @@ function addMealToFav(mealData) {
 
 function removeMealFromFav(mealData) {
     const favMeals = document.getElementById("fav-meals");
-    for (let child of favMeals.children) {
+    for (let i = favMeals.children.length-1; i >=0 ; i--) {
+        const child = favMeals.children[i];
         const favName = child.getElementsByTagName("span")[0].innerText;
         if (favName == mealData.strMeal) favMeals.removeChild(child);
     } 
