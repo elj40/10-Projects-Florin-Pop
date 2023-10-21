@@ -29,6 +29,7 @@ main {
     overflow: hidden;
 }
 
+
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -37,7 +38,7 @@ main {
     background-image: linear-gradient(to right, white, #b2ffe9);
 }
 
-.close, .dots, .plus {
+.close, .dots, .plus, .trash {
     font-size: 1.25rem;
     padding: 0;
 
@@ -45,6 +46,39 @@ main {
     background: none;
     border: none;
 }
+
+.all-notes {
+    position: relative;
+    display: inline-block;
+}
+
+.each-note {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.each-note p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: default;
+    margin: 0;
+}
+
+/* Change color of dropdown links on hover */
+.each-note p:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.all-notes:hover .each-note {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.all-notes:hover .dropbtn {background-color: #3e8e41;}
+
 
 .left-btn {
     color: #a2dd51;
