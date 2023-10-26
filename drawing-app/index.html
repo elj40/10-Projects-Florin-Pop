@@ -5,14 +5,16 @@
         <meta name="viewport" content="width=device-width,inital-scale=1.0">
         <title>Drawing App</title>
         <link rel="stylesheet" href="style.css">
-    </head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />    </head>
     <body>
         <main>
             <canvas id="canvas"></canvas>
             <div id="toolbox" class="toolbox">
                 <input type="color" id="color-picker">
                 <input type="range" min="2" max="50" value="3" id="size-adjust">
-                <button id="clear">Clear</button>
+                <button id="clear"><span class="material-symbols-outlined">
+                    delete
+                    </span></button>
             </div>
         </main>
 
