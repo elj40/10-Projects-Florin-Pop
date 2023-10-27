@@ -31,12 +31,10 @@ generateBtn.onclick = function generatePassword() {
         if (index == 2 && !useLower) continue;
         if (index == 3 && !useNumbers) continue;
 
-        if (index < 3) {
-            let li = Math.floor(Math.random()*(characters[index][1]-characters[index][0])) + characters[index][0];
-            password += String.fromCharCode(li);
-        }else {
-            password += Math.floor(Math.random()*10).toString();
-        }
+        let li = Math.floor(Math.random()*(characters[index][1]-characters[index][0])) + characters[index][0];
+
+        if (index < 3) password += String.fromCharCode(li);
+        else password += Math.floor(Math.random()*10).toString();
         i++;
     }
 
