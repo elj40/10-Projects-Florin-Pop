@@ -1,0 +1,1 @@
+alert("Needed to create account to get weather API to work. I could not be bothered to do so, so this project is only going to focus on HTML and CSS");
